@@ -4,7 +4,13 @@ import { AppRegistry } from 'react-native';
 
 export default class TelaPerfil extends React.Component {
   static navigationOptions = {
-    tabBarLabel: 'Perfil'
+    tabBarLabel: 'Perfil',
+    tabBarIcon: ({tintColor}) => (
+      <Image
+        source={require('../images/home_icon.png')}
+        style={{width: 22, height: 22, tintColor: 'white'}}>
+      </Image>
+    )
   }
 
   render() {
