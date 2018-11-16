@@ -3,6 +3,9 @@ import {Text, View, Button, Image, AppRegistry, ScrollView } from 'react-native'
 import { PieChart } from 'react-native-svg-charts'
 
     class PieChartWithDifferentArcs extends React.PureComponent {
+        static navigationOptions = {
+        tabBarLabel: 'Graficos'
+        }
         
         render() {
             

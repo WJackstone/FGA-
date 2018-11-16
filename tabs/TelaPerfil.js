@@ -4,7 +4,7 @@ import { AppRegistry } from 'react-native';
 
 export default class TelaPerfil extends React.Component {
   static navigationOptions = {
-    tabBarLabel: 'Tab2'
+    tabBarLabel: 'Perfil'
   }
 
   render() {
