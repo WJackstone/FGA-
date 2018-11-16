@@ -75,7 +75,7 @@ import { PieChart } from 'react-native-svg-charts'
                     data={data}
                     />
 
-                    <Text style={{fontSize:20,fontWeight:'bold',}}>Linguangens</Text>
+                    <Text style={{fontSize:20,fontWeight:'bold',}}>Texto teste</Text>
                     
                     <PieChart
                     style={{ height: 200 }}
