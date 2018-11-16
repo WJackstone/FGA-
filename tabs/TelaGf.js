@@ -78,7 +78,7 @@ import { PieChart } from 'react-native-svg-charts'
                     <Text style={{fontSize:20,fontWeight:'bold',}}>Texto teste</Text>
                     
                     <PieChart
-                    style={{ height: 200 }}
+                    style={{ height: 170 }}
                     outerRadius={'80%'}
                     innerRadius={40}
                     data={data2}
