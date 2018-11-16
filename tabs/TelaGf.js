@@ -4,8 +4,15 @@ import { PieChart } from 'react-native-svg-charts'
 
     class PieChartWithDifferentArcs extends React.PureComponent {
         static navigationOptions = {
-        tabBarLabel: 'Graficos'
-        }
+    tabBarLabel: 'Graficos',
+    tabBarIcon: ({tintColor}) => (
+      <Image
+        source={require('../images/graph_icon.png')}
+        style={{width: 22, height: 22, tintColor: 'white'}}>
+      </Image>
+    )
+  }
+
         
         render() {
             
