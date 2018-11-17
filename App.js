@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { TabNavigator } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation";
 import TelaGf from './tabs/TelaGf'
 import TelaPerfil from './tabs/TelaPerfil'
 
-var MainScreenNavigator = TabNavigator({
+var MainScreenNavigator = createBottomTabNavigator({
   tab1: {screen: TelaGf},
   tab2: {screen: TelaPerfil}
 }, {
@@ -22,7 +22,7 @@ var MainScreenNavigator = TabNavigator({
     }
   }
 }
-});
+);
 
 MainScreenNavigator.navigationOptions ={
   title: "Tab example"
