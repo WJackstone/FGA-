@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity, Alert } from 'react-native';
+
 import { AppRegistry } from 'react-native';
 
 export default class TelaPerfil extends React.Component {
@@ -8,22 +9,42 @@ export default class TelaPerfil extends React.Component {
     tabBarIcon: ({tintColor}) => (
       <Image
         source={require('../images/home_icon.png')}
-        style={{width: 22, height: 22, tintColor: 'white'}}>
+        style={{width: 20, height: 20, tintColor: 'white'}}>
       </Image>
     )
   }
 
+  _onPressGrade(){
+    Alert.alert('Abre a grade para edição')
+  }
+
   render() {
-    return <View style={
-        {
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center'
-        }
-    }>
-      <Text style={{fontSize: 30}}>
-        Tela de perfil a ser implementada
-      </Text>
-    </View>
+    return (
+      <ScrollView style={styles.container}>
+        <View style={styles.grade}>
+          <TouchableOpacity onPress={this._onPressGrade}>
+            <Image source={require('../assets/grade.png')} style={styles.grade}/>
+          </TouchableOpacity>
+        </View>
+
+      </ScrollView>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  grade: {
+    height: 200,
+    width: 450,
+    backgroundColor: 'white',
+    paddingTop: 50,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+
+});
