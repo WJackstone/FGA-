@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Button, Image, AppRegistry, ScrollView } from 'react-native';
+import {Text, View, Button, Image, AppRegistry, ScrollView, TouchableOpacity } from 'react-native';
 import { PieChart } from 'react-native-svg-charts'
 
     class PieChartWithDifferentArcs extends React.PureComponent {
@@ -79,21 +79,25 @@ import { PieChart } from 'react-native-svg-charts'
             return (
                     <ScrollView>
                     <Text style={{fontSize:20,fontWeight:'bold', marginTop:30}}>Primeiro grafico</Text>
+                    <TouchableOpacity>
                     <PieChart
                     style={{ height: 400 }}
                     outerRadius={'70%'}
                     innerRadius={70}
                     data={data}
                     />
+                    </TouchableOpacity>
 
                     <Text style={{fontSize:20,fontWeight:'bold',}}>Segundo grafico</Text>
                     
+                    <TouchableOpacity>
                     <PieChart
                     style={{ height: 400 }}
                     outerRadius={'70%'}
                     innerRadius={70}
                     data={data2}
                     />
+                    </TouchableOpacity>
                     </ScrollView>
                     )
             
