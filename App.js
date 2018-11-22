@@ -13,9 +13,9 @@ var MainScreenNavigator = createBottomTabNavigator({
   swipeEnabled: true,
   tabBarOptions: {
     activeTintColor: 'white',
-    activeBackgroundColor: 'darkgreen',
-    inactiveTintColor: 'black',
-    inactiveBackgroundColor: 'green',
+    activeBackgroundColor: 'forestgreen',
+    inactiveTintColor: 'white',
+    inactiveBackgroundColor: 'darkgreen',
     labelStyle: {
       fontSize: 16,
       padding: 0
