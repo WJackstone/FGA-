@@ -1,7 +1,32 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity, Alert } from 'react-native';
-
+import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity, Alert, Platform, SectionList } from 'react-native';
+import { CardList } from 'react-native-card-list';
 import { AppRegistry } from 'react-native';
+
+const cards = [
+    {
+      id: "0",
+      title: "Matérias concluídas",
+      picture: require('../images/unb-gama.jpg'),
+      content: <SectionList
+          sections={[
+            {title: '1 Semestre', data: ['Calculo 1', 'Engenharia e ambiente', 'Introdução a engenharia', 'APC', 'DIAC']},
+            {title: '2 Semestre', data: ['Calculo 2', 'IAL', 'Fisica 1', 'Probabilidade e estatistica', 'Fisica experimental']},
+            {title: '3 Semestre', data: ['Engenharia economica', 'Desenvolvimento de Software', 'Matematica discreta', 'Humanidades e cidadania']},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+          keyExtractor={(item, index) => index}
+        />
+
+    },
+    {
+      id: "1",
+      title: "Skills",
+      picture: require('../images/skills.jpg'),
+      content: <Text>Vai ter uma SectionList aqui</Text>
+    }
+  ]
 
 export default class TelaPerfil extends React.Component {
   static navigationOptions = {
@@ -16,6 +41,7 @@ export default class TelaPerfil extends React.Component {
   _onPressGrade(){
     Alert.alert('Abre a grade para edição')
   }
+
 
   render() {
     return (
@@ -37,7 +63,9 @@ export default class TelaPerfil extends React.Component {
             <Text style={styles.dadosPerfil}>Engenharia de Software</Text>
           </View>
         </View>
-        
+        <View style={styles.cardSkills}>
+          <CardList cards={cards} />
+        </View>
 
       </ScrollView>
     );
@@ -67,11 +95,29 @@ const styles = StyleSheet.create({
     padding: 2
   },
   nomePerfil: {
-    fontSize:24,
+    fontSize:22,
     fontWeight: 'bold'
   },
   dadosPerfil: {
-    fontSize: 17
+    fontSize: 16
+  },
+  cardSkills: {
+    flex: 1,
+    marginTop: 30
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'white',
   }
 
 
