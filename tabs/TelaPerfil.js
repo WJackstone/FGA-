@@ -9,8 +9,7 @@ export default class TelaPerfil extends React.Component {
     tabBarIcon: ({tintColor}) => (
       <Image
         source={require('../images/home_icon.png')}
-        style={{width: 20, height: 20, tintColor: 'white'}}>
-      </Image>
+        style={{width: 22, height: 20, tintColor: 'white'}}/>
     )
   }
 
@@ -20,12 +19,25 @@ export default class TelaPerfil extends React.Component {
 
   render() {
     return (
+
       <ScrollView style={styles.container}>
-        <View style={styles.grade}>
+        <View style={styles.gradeView, {borderBottomColor: 'grey', borderBottomWidth: 1}}>
           <TouchableOpacity onPress={this._onPressGrade}>
-            <Image source={require('../assets/grade.png')} style={styles.grade}/>
+            <Image source={require('../assets/grade.png')} style={styles.gradeImg}/>
           </TouchableOpacity>
         </View>
+        <View style={styles.infoPerfil}>
+          <View style={{height:40}}>
+            <Text style={styles.nomePerfil}>Daniel de Andrade Souza</Text>
+          </View>
+          <View style={{height:30}}>
+            <Text style={styles.dadosPerfil}>Estudante de graduação na FGA</Text>
+          </View>
+          <View style={{height:30}}>
+            <Text style={styles.dadosPerfil}>Engenharia de Software</Text>
+          </View>
+        </View>
+        
 
       </ScrollView>
     );
@@ -37,14 +49,30 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
-  grade: {
+  gradeView: {
     height: 200,
     width: 450,
     backgroundColor: 'white',
-    paddingTop: 50,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: 'column'
+  },
+  gradeImg: {
+    height: 200,
+    width: 450,
+    marginTop: 20
+  },
+  infoPerfil: {
+    flex:1,
+    justifyContent: 'space-evenly',
+    marginTop: 100,
+    padding: 2
+  },
+  nomePerfil: {
+    fontSize:24,
+    fontWeight: 'bold'
+  },
+  dadosPerfil: {
+    fontSize: 17
   }
+
 
 });
