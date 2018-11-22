@@ -8,7 +8,7 @@ import { PieChart } from 'react-native-svg-charts'
     tabBarIcon: ({tintColor}) => (
       <Image
         source={require('../images/graph_icon.png')}
-        style={{width: 22, height: 22, tintColor: 'white'}}>
+        style={{width: 22, height: 20, tintColor: 'white'}}>
       </Image>
     )
   }
@@ -78,6 +78,7 @@ import { PieChart } from 'react-native-svg-charts'
             
             return (
                     <ScrollView>
+                    <Text style={{fontSize:20,fontWeight:'bold', marginTop:30}}>Primeiro grafico</Text>
                     <PieChart
                     style={{ height: 400 }}
                     outerRadius={'70%'}
@@ -85,12 +86,12 @@ import { PieChart } from 'react-native-svg-charts'
                     data={data}
                     />
 
-                    <Text style={{fontSize:20,fontWeight:'bold',}}>Texto teste</Text>
+                    <Text style={{fontSize:20,fontWeight:'bold',}}>Segundo grafico</Text>
                     
                     <PieChart
-                    style={{ height: 170 }}
-                    outerRadius={'80%'}
-                    innerRadius={40}
+                    style={{ height: 400 }}
+                    outerRadius={'70%'}
+                    innerRadius={70}
                     data={data2}
                     />
                     </ScrollView>
