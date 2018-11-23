@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView,TouchableOpacity, Alert, Platform, SectionList } from 'react-native';
 import { CardList } from 'react-native-card-list';
 import { AppRegistry } from 'react-native';
+import { ProgressCircle }  from 'react-native-svg-charts'
 
 const cards = [
     {
@@ -24,7 +25,15 @@ const cards = [
       id: "1",
       title: "Skills",
       picture: require('../images/skills.jpg'),
-      content: <Text>Vai ter uma SectionList aqui</Text>
+      content: <SectionList
+          sections={[
+            {title: 'Linguagens de programação', data: ['C', 'Engenharia e ambiente', 'Introdução a engenharia', 'APC', 'DIAC']},
+            {title: 'Diferencial', data: ['CATIA avançado', 'Marketing Digital', 'SCRUM', 'Idioma - Ingles']},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+          keyExtractor={(item, index) => index}
+        />
     }
   ]
 
@@ -41,7 +50,9 @@ export default class TelaPerfil extends React.Component {
   _onPressGrade(){
     Alert.alert('Abre a grade para edição')
   }
-
+  _onPressProgresso(){
+    Alert.alert('Parabens, já concluiu 30% dos creditos necessários para se formar')
+  }
 
   render() {
     return (
@@ -62,6 +73,17 @@ export default class TelaPerfil extends React.Component {
           <View style={{height:30}}>
             <Text style={styles.dadosPerfil}>Engenharia de Software</Text>
           </View>
+        </View>
+        <View style={styles.progresso}>
+          <TouchableOpacity onPress={this._onPressProgresso}>
+            <ProgressCircle
+              style={{height:100, marginTop: 50}}
+              progress={0.3}
+              progressColor={'red'}
+            />
+          </TouchableOpacity>
+          <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 25}}>30% concluido</Text>
+
         </View>
         <View style={styles.cardSkills}>
           <CardList cards={cards} />
@@ -86,7 +108,7 @@ const styles = StyleSheet.create({
   gradeImg: {
     height: 200,
     width: 450,
-    marginTop: 20
+    marginTop: 24
   },
   infoPerfil: {
     flex:1,
@@ -103,7 +125,7 @@ const styles = StyleSheet.create({
   },
   cardSkills: {
     flex: 1,
-    marginTop: 30
+    marginTop: 50
   },
   item: {
     padding: 10,
@@ -118,6 +140,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     backgroundColor: 'white',
+  },
+  progresso: {
+    marginTop: 30,
+    borderColor: 'grey',
+    borderTopWidth: 10,
+    borderRadius: 10
   }
 
 
