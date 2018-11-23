@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, Button, Image, AppRegistry, ScrollView, TouchableOpacity } from 'react-native';
-import { PieChart } from 'react-native-svg-charts'
+import { PieChart, BarChart, Grid } from 'react-native-svg-charts'
 
     class PieChartWithDifferentArcs extends React.PureComponent {
         static navigationOptions = {
@@ -16,7 +16,10 @@ import { PieChart } from 'react-native-svg-charts'
         
         render() {
             
-            
+            const fill = 'green'
+            const databarchart = [10, 20, 30, 40, 50]
+
+
             const data = [
                           {
                           key: 1,
@@ -77,27 +80,57 @@ import { PieChart } from 'react-native-svg-charts'
 
             
             return (
-                    <ScrollView>
-                    <Text style={{fontSize:20,fontWeight:'bold', marginTop:30}}>Primeiro grafico</Text>
-                    <TouchableOpacity>
-                    <PieChart
-                    style={{ height: 400 }}
-                    outerRadius={'70%'}
-                    innerRadius={70}
-                    data={data}
-                    />
-                    </TouchableOpacity>
+                    <ScrollView style={{marginTop: 24}}>
+                      <View style={{borderColor: 'darkgreen', borderBottomWidth: 10, borderTopWidth: 10, borderRadius: 10}}>
+                        <Text style={{fontSize:26,fontWeight:'bold', marginTop:30, paddingHorizontal: 20}}>Primeiro grafico</Text>
+                        <TouchableOpacity>
+                          <PieChart
+                          style={{ height: 400 }}
+                          outerRadius={'70%'}
+                          innerRadius={70}
+                          data={data}
+                          />
+                        </TouchableOpacity>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 1</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 2</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 3</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 4</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', marginBottom: 10, paddingHorizontal: 5}}>legenda 5</Text>
+                      </View>
 
-                    <Text style={{fontSize:20,fontWeight:'bold',}}>Segundo grafico</Text>
+                      <View style={{borderColor: 'darkgreen', borderBottomWidth: 10, borderTopWidth: 10, borderRadius: 10}}>
+                        <Text style={{fontSize:26,fontWeight:'bold', marginTop:30, paddingHorizontal: 20}}>Segundo grafico</Text>
+                        <TouchableOpacity>
+                          <PieChart
+                          style={{ height: 400 }}
+                          outerRadius={'70%'}
+                          innerRadius={70}
+                          data={data}
+                          />
+                        </TouchableOpacity>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 1</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 2</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 3</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 4</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', marginBottom: 10, paddingHorizontal: 5}}>legenda 5</Text>
+                      </View>
                     
-                    <TouchableOpacity>
-                    <PieChart
-                    style={{ height: 400 }}
-                    outerRadius={'70%'}
-                    innerRadius={70}
-                    data={data2}
-                    />
-                    </TouchableOpacity>
+                      <View style={{borderColor: 'darkgreen', borderBottomWidth: 10, borderTopWidth: 10, borderRadius: 10}}>
+                        <Text style={{fontSize:26,fontWeight:'bold', marginTop:30, paddingHorizontal: 20}}>Terceiro grafico</Text>
+                        <TouchableOpacity>
+                          <BarChart
+                            style={{height:200}}
+                            data={databarchart}
+                            svg={{fill}}
+                            contentInset={{top:30,bottom:30}}
+                          />
+                        </TouchableOpacity>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 1</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 2</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 3</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', paddingHorizontal: 5}}>legenda 4</Text>
+                        <Text style={{fontSize:16,fontWeight:'bold', marginBottom: 10, paddingHorizontal: 5}}>legenda 5</Text>
+                      </View>
                     </ScrollView>
                     )
             
