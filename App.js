@@ -19,6 +19,9 @@ var MainScreenNavigator = createBottomTabNavigator({
     labelStyle: {
       fontSize: 16,
       padding: 0
+    },
+    style: {
+     height:50 
     }
   }
 }
